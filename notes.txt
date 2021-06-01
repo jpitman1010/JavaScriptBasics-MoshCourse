@@ -51,9 +51,28 @@ in JavaScript.  i.e. let name = 'Julie';
     -strings
     -numbers
     -booleans
-    -undefined
-    -null
-    
+    -undefined  (both a type and can be a value)
+    -null (this type returns an object)
 
 
+11. Dynamic Typing
+    -type of variable can be changed, if it starts
+    as a string, you can change it later 
+    -in browser, under console log at > you can type in
+    commands, i.e. if console logs name = Julie
+    you can type in name = 1
+    -then you can check typeof the variable by Typing
+    typeof name; it will return number once reassigned like above.
 
+
+-control L will clear console.
+
+
+12. Objects 
+    -Reference Types
+        -Object
+            -like a real life object. Objects have properties.  
+                -a person for example, has properties of name, age, physical attributes, etc...
+                
+        -Array
+        -Function
