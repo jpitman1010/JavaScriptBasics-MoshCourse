@@ -47,7 +47,13 @@ in JavaScript.  i.e. let name = 'Julie';
 
 9.  using const means that you cannot reassign the value
     
-10. 
+10. Primitive/Value Types
+    -strings
+    -numbers
+    -booleans
+    -undefined
+    -null
+    
 
 
 
