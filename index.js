@@ -1,19 +1,35 @@
-//Ternary (conditional) Operator
+//Logical Operators
 
-//if a customer has more than 100 points, 
-//they are a 'gold customer, otherwise,
-//they are a 'silver' customer.
+//decisions based on multiple conditions
 
-let points = 110;
-let type = points > 100 ? 'gold' : 'silver';
+//Logical AND (&&)
+//returns true if both operands are true
 
-//by adding the ? at the end of the condition statement,
-//it will take the true false answer that is returned (is points greater than 100)
-//and then by putting 'gold' : 'silver' it is stating that if  true  is returned
-//then type === 'gold, if false type === 'silver
+// console.log(true && true); //returns true (just once)
 
-console.log(type); //resul;ts in gold
+// console.log(true && false); //returns false since one is true and one is false
+// console.log(false && true);//returns false since one is true and one is false
 
-//if you change the points to = 90, then you would get output of silver from console.log(type)
 
+// let highIncome = true;
+// let goodCreditScore = true;
+// let elegibleForLoan = highIncome && goodCreditScore;
+
+// console.log(elegibleForLoan); //returns true  
+
+//Logical OR (||)
+//returns true if both operands are true
+
+let highIncome = false;
+let goodCreditScore = true;
+let elegibleForLoan = highIncome || goodCreditScore;
+
+console.log('elegible', elegibleForLoan); //returns true  because as long as ONE operand in 
+//the expression is true, it will return true.  unless both are false, it will return true
+
+//Logical NOT (!)
+
+let applicationRefused = !elegibleForLoan;
+//it will return opposite of
+console.log('application refused', applicationRefused); //returns false, always opposite returned
 
