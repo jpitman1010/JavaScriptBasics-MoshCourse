@@ -1,13 +1,15 @@
-//Assignment Operators 
+//comparison operators
 
-let x = 10;
+let x = 1;
 
-// x++;
-//equivelent to x = x + 1
+//relational operators
+//results in a boolean true/false
+console.log(x > 0); //true
+console.log(x >= 1); //true
+console.log(x < 1); //false
+console.log(x <= 1); //true
 
-//but if you wanted to do increment by 5, this above statement won't work
-//instead you can use x += 5;
 
-x += 5;
-
-//same goes for other operator types.
+//equality operators
+console.log(x === 1); //true
+console.log(x !== 1); //false
