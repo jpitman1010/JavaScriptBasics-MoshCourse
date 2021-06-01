@@ -1,15 +1,9 @@
-//Arrays
+//Functions
 
-let selectedColors = ['red', 'blue'];
-//array literal == []
-//to initialize the array by adding items into the array.
-//target property
-console.log(selectedColors);
-console.log(selectedColors[0]);
-console.log(selectedColors[1]);
+function greet(name, lastName) {
+    //name is a parameter only accessable by this function
+    console.log('Hello ' + name + ' ' + lastName);
+}
 
-//adding to an array
-selectedColors[2] = 'green';
-console.log(selectedColors[2]);
-
-console.log('length of array is using the property of the object by doing object.length', selectedColors.length)
+//the arguement is the actual value supplying the parameter in the function above.
+greet('Julie', 'Pitman');
