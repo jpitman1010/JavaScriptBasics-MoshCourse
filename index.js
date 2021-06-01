@@ -1,35 +1,42 @@
-//Logical Operators
+//Logical Operators with Non-boolean values
 
-//decisions based on multiple conditions
-
-//Logical AND (&&)
-//returns true if both operands are true
-
-// console.log(true && true); //returns true (just once)
-
-// console.log(true && false); //returns false since one is true and one is false
-// console.log(false && true);//returns false since one is true and one is false
+//  false || true      will return true
+// false || 'Mosh'     will return 'Mosh'
+// false || 1          will return 1
 
 
-// let highIncome = true;
-// let goodCreditScore = true;
-// let elegibleForLoan = highIncome && goodCreditScore;
+//the result of a logical expression is not necessarily true or false.  
+//if the types do not match, it evaluates it as "Truthy" or "Falsy"
 
-// console.log(elegibleForLoan); //returns true  
+//Falsy (false) values:
+    // undefined
+    // null
+    // 0 
+    // false 
+    // ''
+    // NaN (not a number)
 
-//Logical OR (||)
-//returns true if both operands are true
+//anything ont Falsy is Truthy and return whatever the other operand is, 
+//since the first operand is false, it continues to look on other side of ||
+//and finds the 'Mosh' or 1 to be truthy.  
+    
 
-let highIncome = false;
-let goodCreditScore = true;
-let elegibleForLoan = highIncome || goodCreditScore;
+//false || 1 || 2
+    //when we have more than one ||, if JavaScript finds the first Truthy part of the 
+    //equation, it stops.  So output for : false || 1 || 2 would be 1.   
+    //This is called short-circuting
 
-console.log('elegible', elegibleForLoan); //returns true  because as long as ONE operand in 
-//the expression is true, it will return true.  unless both are false, it will return true
 
-//Logical NOT (!)
+// let userColor = 'red';
+// let defaultColor = 'blue';
+// let currentColor = userColor || defaultColor;
+// //this last one states that if we have a value for userColor we will use that, if not
+// //we will use the default color.
+// console.log(currentColor); //returns 'red'
 
-let applicationRefused = !elegibleForLoan;
-//it will return opposite of
-console.log('application refused', applicationRefused); //returns false, always opposite returned
 
+let userColor = undefined;
+let defaultColor = 'blue';
+let currentColor = userColor || defaultColor;
+
+console.log(currentColor); //returns 'blue'
