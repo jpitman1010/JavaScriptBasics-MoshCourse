@@ -1,0 +1,24 @@
+best practices: 
+
+1. to start a document, type ! then press tab, it creates
+base HTML required.
+
+2. to add tags, type in tag name (without < to start) then 
+press tab, it will create the open and closing tags.
+
+3. place script tags in the body 
+right above ending tag, below all code
+    a. browser parses file from top to bottom.
+    so it won't be able to render content and give
+    bad user experience.
+    b. makes sure all elements are rendered by  browser.
+    c. as best practice JavaScript goes at bottom, some 3rd party
+    applications require it to be in header section.
+
+4. HTML == content
+5. JavaScript == behavior of content
+6. to run in node, open terminal and type node filename and it will run the 
+JavaScript in the terminal.
+
+
+
