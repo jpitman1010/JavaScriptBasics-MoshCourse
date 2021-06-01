@@ -21,4 +21,29 @@ right above ending tag, below all code
 JavaScript in the terminal.
 
 
+7. use single quotes when declairing something
+in JavaScript.  i.e. let name = 'Julie';
+
+8.  Naming variables 
+    -cannot use a reserved keyword. 
+    . if
+    . var
+    . let
+    etc...
+
+    -use meaningful and descriptive names
+    . don't use p= or r = , etc...
+
+    -cannot start with a number
+    -cannot contain a space or hyphen
+    -camelCase should be used
+    -variables are case-sensitive
+    -you can declair 2+ variables on same line 
+    separating with a comma
+    .  let firstName = 'Julie', lastName = 'Pitman';
+    . HOWEVER, best practice is to separate them into 2 lines!
+
+9.  
+
+
 
