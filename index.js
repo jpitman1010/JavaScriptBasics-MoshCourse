@@ -1,27 +1,15 @@
+//Arrays
 
-let person = {
-    name: 'Julie',
-    age: 30
-}; //using curly braces allows for 
-//an object literal, you can then use key value pairs 
-//to input attributes to that object.
+let selectedColors = ['red', 'blue'];
+//array literal == []
+//to initialize the array by adding items into the array.
+//target property
+console.log(selectedColors);
+console.log(selectedColors[0]);
+console.log(selectedColors[1]);
 
-console.log('person object literal = ', person);
+//adding to an array
+selectedColors[2] = 'green';
+console.log(selectedColors[2]);
 
-//dot notation -this is cleaner coding and easier to use per Mosh
-person.name = 'John';
-
-console.log('person dot notation =', person.name);
-
-//bracket Notation
-person['age'] = '22';
-
-console.log('person bracket notation for age = ', person.age);
-
-
-let selection = 'name';
-
-//target property is to use selection
-person[selection] = 'Mary';
-
-console.log('target property of selection =', person.name);
+console.log('length of array is using the property of the object by doing object.length', selectedColors.length)
