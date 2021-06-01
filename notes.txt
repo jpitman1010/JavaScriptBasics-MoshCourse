@@ -73,6 +73,18 @@ in JavaScript.  i.e. let name = 'Julie';
         -Object
             -like a real life object. Objects have properties.  
                 -a person for example, has properties of name, age, physical attributes, etc...
-                
+
         -Array
         -Function
+
+13. operators
+    -Arithmetic operators
+    -Assignment operators
+    -Comparison operators
+    -Logical operators
+    -Bitwise operators
+-operator variables
+- expressions
+-algorithms
+
+14.
