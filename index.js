@@ -1,36 +1,26 @@
-//Do ... While
+//infinite loops
 
-//must declair the variable outside of the loop 
-//(for reasons of scope, to be learned later)
-
-// let i =0;
-
-// // while (condition) {
-// //     statement
-// // }
-
-// while (i <= 5) {
-//     if (i % 2 !== 0) console.log(i);
-//     i++;
-// }
-
-
-
-//do while 
+//great way to crash your browser or computer!  
 
 // let i = 0;
+// while (i < 5) {
+//     console.log(i);
+// }
+
+//while (true) {
+    //forgetting to implement something that would make the statement false.
+//}
+
 // do {
-//     if (i % 2 !== 0) console.log(i);
-//     i++;
-// } while (i <= 5);
+//     //forgetting to increment i here
+// }while (x < 5);
 
-//do while loops are always evaluated at least 1x, even if condition evaluates to false
+//for (let i = 0; i > 0; i++) {
+    // the condition fails to consider that after the first loop 
+    // i is always greater than 0
+// }
 
-let i = 9;
-do {
-    if (i % 2 !== 0) console.log(i);
-    i++;
-} while (i <= 5);
-
-//will console log 9 in this expression since it always must run at least 1x
-//practically speaking will likely use a regular while loop
+//for (let i = 0; i < 10; ) {
+    // the condition fails to increment the i, 
+    // so it will just repeat infinitely.
+// }
