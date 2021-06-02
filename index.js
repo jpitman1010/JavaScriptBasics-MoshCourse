@@ -1,12 +1,15 @@
-//For loops
-// for (set variable; condition ; increment expression )
-//     statement -if multiple statements, use curly braces around the statements!
+//While
 
+//must declair the variable outside of the loop 
+//(for reasons of scope, to be learned later)
 
-// for (let i = 1; i <= 5; i++) {
-//     if (i % 2 !== 0) console.log(i)
+let i =0;
+
+// while (condition) {
+//     statement
 // }
 
-for (let i = 5; i >= 1; i--) {
-    if (i % 2 !== 0) console.log(i)
+while (i <= 5) {
+    if (i % 2 !== 0) console.log(i);
+    i++;
 }
