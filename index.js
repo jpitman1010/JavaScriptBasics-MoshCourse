@@ -1,25 +1,12 @@
-//Switch and case
+//For loops
+// for (set variable; condition ; increment expression )
+//     statement -if multiple statements, use curly braces around the statements!
 
-let role = 'guest';
 
-// switch (variable) {
-//     case statement
+// for (let i = 1; i <= 5; i++) {
+//     if (i % 2 !== 0) console.log(i)
 // }
 
-switch (role) {
-    case 'guest':
-        console.log('Guest User');
-        break;
-
-    case 'moderator':
-        console.log('Moderator User');
-        break;
-    default:
-        console.log('Unknown User');
+for (let i = 5; i >= 1; i--) {
+    if (i % 2 !== 0) console.log(i)
 }
-
-//can implement using if and else statements too.
-
-if (role === 'guest') console.log('Guest User')
-else if (role === 'moderator') console.log('Moderator User')
-else console.log('Unknown User')

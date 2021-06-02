@@ -94,3 +94,11 @@ in JavaScript.  i.e. let name = 'Julie';
 14.  Javascript has 2 types of conditional statements:
     -if...else 
     -Switch...case
+
+15. Loops in Javascript:
+    -for
+    -while
+    -do...while
+    -for...in
+    -for...of
+    
