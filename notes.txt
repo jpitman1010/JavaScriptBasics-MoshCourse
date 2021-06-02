@@ -1,5 +1,9 @@
 best practices: 
 
+to open on live server (web browser) go to HTML file and right click on document, then click 
+open with live server
+
+
 1. to start a document, type ! then press tab, it creates
 base HTML required.
 

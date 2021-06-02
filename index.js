@@ -1,25 +1,25 @@
-// If ...else
+//Switch and case
 
-//Get current hour, then greet user accordingly.
+let role = 'guest';
 
-//if hour between 6a-12pm: Good morning!
-// I hours between 12pm and 6pm: Good afternoon!
-// otherwise: Good evening!
+// switch (variable) {
+//     case statement
+// }
 
-// if (condition) 
-    //statement
+switch (role) {
+    case 'guest':
+        console.log('Guest User');
+        break;
 
-//if there are multiple statements you must use curly braces after condition: 
-// if (condition) {
-    //statement
-//}
-//when we are only using a signle statement remove curly braces after condition
+    case 'moderator':
+        console.log('Moderator User');
+        break;
+    default:
+        console.log('Unknown User');
+}
 
-let hour = 10;
+//can implement using if and else statements too.
 
-if (hour >= 6 && hour < 12) 
-    console.log('Good morning');
-else if (hour >= 12 && hour < 18) 
-    console.log('Good afternoon!');
-else 
-    console.log('Good evening!');
+if (role === 'guest') console.log('Guest User')
+else if (role === 'moderator') console.log('Moderator User')
+else console.log('Unknown User')
