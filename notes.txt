@@ -87,4 +87,6 @@ in JavaScript.  i.e. let name = 'Julie';
 - expressions
 -algorithms
 
-14.
+14.  Javascript has 2 types of conditional statements:
+    -if...else 
+    -Switch...case

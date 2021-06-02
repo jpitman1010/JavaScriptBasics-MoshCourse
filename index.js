@@ -1,22 +1,25 @@
-//Programming Exercise, Swapping Variables
+// If ...else
 
-let a = 'red';
-let b = 'blue'; 
+//Get current hour, then greet user accordingly.
 
-//challenge, to write code to swap the two variables.
+//if hour between 6a-12pm: Good morning!
+// I hours between 12pm and 6pm: Good afternoon!
+// otherwise: Good evening!
 
-// a = 'red' ? 'blue' : 'red';
-// b = 'blue' ? 'red' : 'blue';
+// if (condition) 
+    //statement
 
-// console.log(a);
-// console.log(b);
+//if there are multiple statements you must use curly braces after condition: 
+// if (condition) {
+    //statement
+//}
+//when we are only using a signle statement remove curly braces after condition
 
-//success on first try!!! WOOT WOOT!!!
+let hour = 10;
 
-// can also do it like this:
-let c = a;
-a = b;
-b = c;
-
-console.log(a);
-console.log(b);
+if (hour >= 6 && hour < 12) 
+    console.log('Good morning');
+else if (hour >= 12 && hour < 18) 
+    console.log('Good afternoon!');
+else 
+    console.log('Good evening!');
