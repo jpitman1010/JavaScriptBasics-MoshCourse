@@ -1,22 +1,23 @@
-// Exercise: Write a fcn that takes 2 numbers and returns the max of the two.
+//exercise write a fcn isLandscape(width, height) {
+//     return true if width greater than height;
+//     else return false
+// }
 
-function maxNum(num1, num2) {
-    // if (num1 > num2) return ( num1, console.log(num1));
-    // return (num2, console.log(num2));
-    //no need to include else when the only one if statement because if 
-    //that condition is false it will return the other
+function isLandscape(width, height) {
+    // return (width > height) ? true : false;
+    //this is considered a poor way of writing code for returning just true or false
 
-    //this is another option of how to write the code above:
-    return (num1 > num2) ? num1 : num2;
-}
+    //can also use if and else:
+    // if (width > height) return true;
+    // return false;
+    //still not ideal way to write the code.
 
-maxNum(33,22);
+    return (width > height);
+    //this will give true if width is greater than height and false if not, 
+    //much cleaner way to write the code!!
+ }
 
-let number = maxNum(3,3);
-console.log(number);
-// let number = maxNum(3,1);
-// console.log(number);
-// let number = maxNum(1,3);
-// console.log(number);
-
-//always test functions with all diff. possible scenarios
+console.log(isLandscape(2,4));
+console.log(isLandscape(2,1));
+console.log(isLandscape(2,2));
+console.log(isLandscape(2,-1));
