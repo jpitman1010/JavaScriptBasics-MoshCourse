@@ -1,24 +1,23 @@
-// for...in loop
-//used to iterate over the properties of an object
-//can also use to iterate over an array, but isn't ideal, that will be on next lecture
+//break and continue
 
-const person = {
-    name: 'Julie',
-    age: 30
-};
+let i = 0;
 
-for (let key in person)
-    console.log(key, person[key]);
+// while (i <= 10) {
+//     if (i === 5) break;
+//     console.log(i);
+//     i++;
+// }
 
+while (i <= 10) {
+    if (i % 2 === 0) {
+        i++;
+        continue;
+        //considered an ugly way to code, it causes the loop to 
+        //jump into the next iteration;
+    }
+    console.log(i);
+    i++;
+}
 
-const colors = ['red', 'green', 'blue'];
-
-// for (let index in colors)
-//     console.log(index, colors[index]);
-
-    //to get element within the object or array, use square bracket notation
-
-//for - of loops are used to loop over elements or items in an array
-
-for (let color of colors)
-    console.log(color);
+//this outputs 1,3,5,7,9
+//whereas if the if statement stopped at if(i % 2) {statement}; then it would output even numbers
