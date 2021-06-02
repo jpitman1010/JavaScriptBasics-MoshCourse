@@ -13,7 +13,12 @@ for (let key in person)
 
 const colors = ['red', 'green', 'blue'];
 
-for (let index in colors)
-    console.log(index, colors[index]);
+// for (let index in colors)
+//     console.log(index, colors[index]);
 
     //to get element within the object or array, use square bracket notation
+
+//for - of loops are used to loop over elements or items in an array
+
+for (let color of colors)
+    console.log(color);
