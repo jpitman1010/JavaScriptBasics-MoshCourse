@@ -1,26 +1,19 @@
-//infinite loops
+// for...in loop
+//used to iterate over the properties of an object
+//can also use to iterate over an array, but isn't ideal, that will be on next lecture
 
-//great way to crash your browser or computer!  
+const person = {
+    name: 'Julie',
+    age: 30
+};
 
-// let i = 0;
-// while (i < 5) {
-//     console.log(i);
-// }
+for (let key in person)
+    console.log(key, person[key]);
 
-//while (true) {
-    //forgetting to implement something that would make the statement false.
-//}
 
-// do {
-//     //forgetting to increment i here
-// }while (x < 5);
+const colors = ['red', 'green', 'blue'];
 
-//for (let i = 0; i > 0; i++) {
-    // the condition fails to consider that after the first loop 
-    // i is always greater than 0
-// }
+for (let index in colors)
+    console.log(index, colors[index]);
 
-//for (let i = 0; i < 10; ) {
-    // the condition fails to increment the i, 
-    // so it will just repeat infinitely.
-// }
+    //to get element within the object or array, use square bracket notation
