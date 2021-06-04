@@ -1,43 +1,54 @@
-// write a function fizzBuzz(input){
-//     return a string
-// }
-//if number is divisible by 3, we will get output of Fizz
-//if number is divisible by 5, we will get oupput of Buzz
-//if number is divisible by both 3 and 5, we get FizzBuzz output
-//else: return same number being passed into input
-//if passing a non Number, should return a message, "Not a number"
+//speed limit is 70km/hr;
+//if driving at or below speed limit, no issues for driver
+//for every 5 km/hr over speed limit, driver gets 1 point 
+//(so 72 still ok with zero points)
+//use Math.floor(can pass float into here)
+//if driver gets more than 12 points then their license should be suspended.
 
 
-//my answer
-// console.log(fizzBuzz(3));
-// console.log(fizzBuzz(15));
-// console.log(fizzBuzz(5));
-// console.log(fizzBuzz(22));
-// console.log(fizzBuzz('three'));
+console.log(checkSpeed(70)); //expected output 0
+console.log(checkSpeed(72)); //expected output 0
+console.log(checkSpeed(75)); //expected output 1
+console.log(checkSpeed(90)); //expected output 4
+console.log(checkSpeed(75.2)); //expected output 1
+console.log(checkSpeed(200));  //expected output 26, so shoudl output "License suspended"
 
-// function fizzBuzz(input) {
-//     if ((input % 3 === 0) && (input % 5 === 0)) return 'FizzBuzz';
-//     else if (input % 3 === 0 && input % 5 !== 0) return 'Fizz';
-//     else if (input % 5 === 0 && input % 3 !== 0) return 'Buzz';
-//     else if (input !== NaN) return 'Not a number';
-//     else return input;
-// }
 
-//Mosh answer:
-console.log(fizzBuzz(3));
-console.log(fizzBuzz(15));
-console.log(fizzBuzz(5));
-console.log(fizzBuzz(22));
-console.log(fizzBuzz('three'));
+//my answer:
+function checkSpeed(speed) {
+    let points = 0;
+    const speedLimit = 70;
+    const acceptableSpeed = speedLimit + 4.9;
 
-function fizzBuzz(input) {
-    if (typeof input !== 'number')
-        return NaN;
-    if ((input % 3 === 0) && (input % 5 === 0)) 
-        return 'FizzBuzz';
-    if (input % 3 === 0)
-        return 'Fizz';
-    if (input % 5 === 0)
-        return 'Buzz';
-    return input;
+    while (speed > acceptableSpeed ) {
+        points += 1;
+        speed -= 5;
+    }
+    if (points < 13) return points;
+    return "License Suspended!";
+}
+
+
+//Mosh answer
+
+console.log(checkSpeedMosh(70)); //expected output 0
+console.log(checkSpeedMosh(72)); //expected output 0
+console.log(checkSpeedMosh(75)); //expected output 1
+console.log(checkSpeedMosh(90)); //expected output 4
+console.log(checkSpeedMosh(75.2)); //expected output 1
+console.log(checkSpeedMosh(200));  //expected output 26, so shoudl output "License suspended"
+
+function checkSpeedMosh(speed) {
+    const speedLimit = 70;
+    const kmPerPoint = 5;
+    
+    if (speed <= speedLimit + kmPerPoint) {
+        console.log('Ok', 0);
+        return; 
+    }
+    const points = Math.floor((speed - speedLimit) / kmPerPoint);
+    if (points >= 12) 
+        return console.log('License suspended!');
+    else  
+        return console.log('Points', points);
 }
