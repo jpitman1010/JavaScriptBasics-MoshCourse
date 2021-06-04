@@ -1,31 +1,31 @@
-//Exercise: String Porperties:
-//create a function called showProperties(obj) and it should
-//show all properties of the object that are type of string
+//Exercise Sum of Multiples of 3 and 5 from 0 up to a limit
+//multiples of 3 for a limit of 10 = 3,6,9
+//multiples of 5 for a limit of 10 = 5, 10
+//add these tother and get total of 33
 
-//my answer
-const movie = {
-    title: 'a',
-    releaseYear: 2018,
-    rating: 4.5,
-    director: 'b'
-};
 
-showProperties(movie);
+//my answer:
+console.log(sum(10));
 
-function showProperties(obj) {
-    for (let key in obj) 
-        if (typeof(obj[key]) === 'string')
-            console.log(key, obj[key]);
+function sum(limit) {
+    let addedSum = 0;
+
+    for (let i = 0; i <= limit; i++) {
+        if (i % 3 === 0) addedSum += i;
+        if (i % 5 === 0) addedSum += i;
+    }
+
+    return addedSum;
 }
 
-//Mosh Answer
 
-showPropertiesMosh(movie);
+console.log(sumMosh(10));
 
-function showPropertiesMosh(obj) {
-    for (let key in obj) 
-        if (typeof obj[key] === 'string')
-            console.log(key, obj[key]);
+function sumMosh(limit) {
+    let addedSum = 0;
+    
+    for (let i = 0; i <= limit; i++) 
+        if (i % 3 === 0 || i % 5 === 0) addedSum += i;
+
+    return addedSum;
 }
-
-//difference is that I put my typeof into () and it wasn't needed
