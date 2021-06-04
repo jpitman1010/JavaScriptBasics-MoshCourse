@@ -1,31 +1,55 @@
-//Exercise 5, Even and Odd Numbers
+//Count Truthy
 
-//write a function showNumbers(limit) and show
-//""EVEN" if it is even number and "ODD" if odd number.
-//zero counts as even.  Should only show up to and including
-//the limit provided.
+//crearte a function countTruthy(array) that 
+//iterates an array and counts all of the truthy elements
+//ex: 
+// const isActive = true; 
+// const name = 'Julie';
+// if (isActive) console.log('Hello'); //returns true or false
+// however:
+// if (name) console.log('Hello'); //returns truthy or falsy
+//because it is trying to evaluate a string, it returns a truthy value because
+//it is not the boolean true/false it but it is still truthy.
+//if string is empty, it is going to return falsy.
 
-//my answer
-showNumber(5);
-showNumber(10);
-showNumber(0);
+//Falsy values are: undefined, null, '', false, 0, NaN
 
-function showNumber(limit) {
-    let i = 0;
-    while (i >= 0 && i <= limit) {
-        console.log(i, (i % 2 === 0) ? "EVEN": "ODD");
-        i++;
+//my answer:
+countTruthy([1,2,3]); //should return 3
+countTruthy([NaN,2,3]); //should return 2
+countTruthy(['',2,3]); //should return 2
+countTruthy([null,2,3]); //should return 2
+countTruthy([undefined,2,3]); //should return 2
+countTruthy([false,2,3]); //should return 2
+countTruthy([]); //should return 0
+countTruthy([NaN, undefined, 0, false, null]); //should return 0
+countTruthy([-1,2,3]); //should return 3
+
+function countTruthy(array) {
+    let truthyCount = 0
+    for (let i = 0; i <= array.length; i++) {
+        if (array[i] ? truthyCount += 1 : truthyCount += 0);
     }
+    return console.log(truthyCount)
 }
 
-//Mosh answer
-showNumberMosh(5);
-showNumberMosh(10);
-showNumberMosh(0);
+//Mosh answer: 
 
-function showNumberMosh(limit) {
-    for (let i = 0; i <= limit; i++) {
-        const message = (i % 2 === 0) ? 'EVEN' : 'ODD'
-        console.log(i, message);
-    }
+console.log(countTruthyMosh([1,2,3])); //should return 3
+console.log(countTruthyMosh([NaN,2,3])); //should return 2
+console.log(countTruthyMosh(['',2,3])); //should return 2
+console.log(countTruthyMosh([null,2,3])); //should return 2
+console.log(countTruthyMosh([undefined,2,3])); //should return 2
+console.log(countTruthyMosh([false,2,3])); //should return 2
+console.log(countTruthyMosh([])); //should return 0
+console.log(countTruthyMosh([NaN, undefined, 0, false, null])); //should return 0
+console.log(countTruthyMosh([-1,2,3])); //should return 3
+
+
+function countTruthyMosh(array) {
+    let count = 0;
+    for (let value of array)
+        if (value)
+            count ++;
+    return count;
 }
