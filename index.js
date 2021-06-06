@@ -53,12 +53,12 @@ console.log(circle2);
 
 function Circle(radius) {
     this.radius = radius;
-    //this: is a reference to the object that is executing this piece of code.
-    //objects are dynamic, and can have new properties added to them.
     this.draw = function () {
         console.log('draw constructor fcn circle');
     }
 }
+//this: is a reference to the object that is executing this piece of code.
+//objects are dynamic, and can have new properties added to them.
 const circle3 = new Circle(1);
 //in order to use constructor fcn, must define a constructor (in this case called circle)
 //make the const set to reserved keyword 'new' then call the fcn Circle and pass the radius
@@ -85,3 +85,30 @@ console.log(circle); //and color has now been removed from the circle object.
 //properties and methods; it is because we aren't changing the const circle, rather 
 //the object properties within it.  So you couldn't change circle to circle = 3 because
 //it is a const, but you can change the parameters within the object within the const
+
+
+
+//every object in javascript has a constructor property that is used to create the
+//object.   for instance:
+const another = new Circle(2)
+console.log(another.constructor);
+//this is what constructor looks like when using the contructor object; it will
+//show the basically the object code and properties, not the output like when we 
+ //called console.log(circle3)
+
+
+console.log(circle.constructor);
+//this actually outputs a function (constructor function); 
+//if we were to set let x = {}; JavaScript would basically take this and
+//turn it into let x = new Object();
+
+//in Javascript there are other constructors: 
+// new String(); // string literals are normally used instead:
+//is same as: '', "", ``; but the latter is cleaner coding than new String();
+// new Boolean(); // boolean literals are normally used instead:
+// true, false
+// new Number(); // number literals are normally used instead:
+// 1,2,3,4, ...
+
+//every object has a constructor property that represents the function that was used
+//to create that object.
