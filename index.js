@@ -3,19 +3,19 @@
 //when we see a program as a collection of objects that talk to each other
 //to perform some functionality:
 //below we have an object with several properties
-// const circle = {
-//     radius: 1,
-//     location: {
-//         x: 1,
-//         y: 1
-//     },
-//     isVisible: true,
-//     draw: function () {
-//         console.log('draw');
-//     }
-// };
+const circle = {
+    radius: 1,
+    location: {
+        x: 1,
+        y: 1
+    },
+    isVisible: true,
+    draw: function () {
+        console.log('draw');
+    }
+};
 
-// circle.draw();
+circle.draw();
 //we are calling the call method of the object, not the function because
 //once the function is inside of the object, it's name changes to method.
 
@@ -59,11 +59,29 @@ function Circle(radius) {
         console.log('draw constructor fcn circle');
     }
 }
-const circle = new Circle(1);
+const circle3 = new Circle(1);
 //in order to use constructor fcn, must define a constructor (in this case called circle)
 //make the const set to reserved keyword 'new' then call the fcn Circle and pass the radius
 //this creates a new javascript object and sets it equal to an empty object:
 //similar to const x = {}, next it sets the object's that have 'this' and place it into
 //the new empty object.  It then automatically returns 'this' (all things using this in object)
 
-console.log(circle)
+console.log(circle3);
+
+
+//dynamic nature of objects:
+
+// if you want to add a key to the factory function circle:
+
+circle.color = 'yellow';
+console.log(circle); //and the color properties has been added to the circle object
+
+//you can also delete properties and methods from objects:
+
+delete circle.color;
+console.log(circle); //and color has now been removed from the circle object.
+
+//why when we use const to define the circle object, then can we add or delete 
+//properties and methods; it is because we aren't changing the const circle, rather 
+//the object properties within it.  So you couldn't change circle to circle = 3 because
+//it is a const, but you can change the parameters within the object within the const
