@@ -1,49 +1,87 @@
-//show stars in rows
-//rows == number of stars in the final row
-// function is to return 1 added star (aligned left)
-//for each row up through the row parameter
+//exercise prime numbers
+//prime numbers are numbers that can only be divided by themself and 1 
+//only include numbers 2+.  
+//factors are only 1 and itself
+//example of composite number (opposite of prime), 12 can be divided by 1,2,3,4,6,12;
+// example of prime number 11
 
-//my answer:
 
-showStars(1);
-showStars(2);
-showStars(3);
-showStars(4);
-showStars(5);
+//my answer: 
+showPrimes(20); //answer should come out as 2,3,5,7,11,13,17,19
 
-function showStars(rows) {
-    let stars = makeStarArray(rows);
-    for (star of stars)
-        console.log(star);
-}
-
-function makeStarArray(rows) {
-    let starsArray = ['*'];
-    if (rows >= 2) {
-        for (let i = 1; i < rows; i++) {
-            starsArray[i] = starsArray[i-1] + '*';
+function showPrimes(limit) {
+    for (let i = 2; i <= limit; i++) {
+        if (i === 2) {
+            console.log('J ' + i);
+        }
+        if (i % 2 !== 0) {
+            for (let index = 0; index <= 10 && index !== i; index++) {
+                if (i % index === 0) break;
+                console.log('J ' + i);
+            }
         }
     }
-    return starsArray;
-}
-
+}   
 
 
 //Mosh answer:
 
-showStarsMosh(0);
-showStarsMosh(1);
-showStarsMosh(2);
-showStarsMosh(3);
-showStarsMosh(4);
-showStarsMosh(5);
+showPrimesMosh(20);
 
-function showStarsMosh(rows) {
-    for (let row = 1; row <= rows; row++) {
-        let pattern = '';
-        for (let i = 0; i < row; i++)
-            pattern += '*';
-        console.log(pattern);
+function showPrimesMosh(limit) {
+    for (let number = 2; number <= limit; number++) {
+        
+        let isPrime = true;
+        for (let factor = 2; factor < number; factor++) {
+            if (number % factor === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime) console.log('M ' + number)
     }
+}
+
+
+//second challenge on isPrime, extract some of the code and
+//separate into 2 functions:
+
+
+//my answer: 
+showPrimes2(20); //answer should come out as 2,3,5,7,11,13,17,19
+
+function showPrimes2(limit) {
+    for (let i = 2; i <= limit; i++) 
+        if (checkIfPrime(i)) console.log('J2  ' + i);        
+}   
+
+function checkIfPrime(number) {
+    if (number === 2) return true;
+    if (number % 2 !== 0)
+        for (let index = 2; index <= 10 && index !== number; index++) {
+            if (number % index === 0) return false;
+            return true;
+        }
+}
+
+
+//Mosh answer: 
+
+
+
+showPrimesMosh2(20);
+
+function showPrimesMosh2(limit) {
+    for (let number = 2; number <= limit; number++)
+        if (isPrimeMosh(number)) console.log('M2  ' + number);
+    }
+
+function isPrimeMosh(number) {
+    for (let factor = 2; factor < number; factor++) 
+        if (number % factor === 0) 
+            return false;
+
+    return true;
 }
 
