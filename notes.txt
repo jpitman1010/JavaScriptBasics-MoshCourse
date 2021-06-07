@@ -121,3 +121,11 @@ in JavaScript.  i.e. let name = 'Julie';
     place the key and value into an array, so the 0 index of the array will be the key,
     and the 1 index will be the value.  for (let entry of Object.entries(circle)) 
     console.log(entry);
+    
+
+16. garbage collection
+
+    //there is no need to create or destroy memory in JavaScript.  You don't have to
+    //de-allocate the memory.  Garbage collector finds the things not in use anymore and  
+    //automatically removes them from the memory and then automatically deallocates their memory.
+
