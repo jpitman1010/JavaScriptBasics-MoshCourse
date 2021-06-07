@@ -1,38 +1,70 @@
-//exercise Address Object
-//create an address object that shows:
-    //street
-    //city
-    //zipCode
-//then create a function that showAddress(address) and shows all the
-//values of the address object.
+// exercise 2, Address factory and constructor functions
+
+//create address object, write 2 diff fcns (factory and constructor) 
+//to initialize an address object
 
 //my answer:
-const address = {
-    street: '123 Fake Street',
-    city: 'Springfield',
-    zipCode: 11111
-};
 
-function showAddress(address) {
-    for (partOf in address)
-        console.log(address.street);
-        console.log(address.city);
-        console.log(address.zipCode);
+//factory function:  
+
+function showAddress(street, city, zipCode) {
+    return {
+        street,
+        city,
+        zipCode
+    }
 }
 
-showAddress(address);
+const address1 = showAddress('123 Fake Street', 'Springfield', '11111');
+
+const address2 = showAddress('123 Simpsons Street', 'Springflied2', '22222');
+
+console.log(address1);
+
+console.log(address2);
+
+
+//constructor function:
+
+function ShowAddress(street, city, zipCode) {
+    this.street = street;
+    this.city = city;
+    this.zipCode = zipCode
+}
+
+const address3 = new ShowAddress('987 Fake Street', 'FakeCity', '33333');
+
+const address4 = new ShowAddress('654 AnotherFakeStreet', 'AnotherFakeCity', '44444');
+
+console.log(address3);
+
+console.log(address4);
+
 
 //Mosh answer:
 
-let addressMosh = {
-    street: 'a',
-    city: 'b',
-    zipCode: 'c'
-};
+//factory function 
 
-function showAddressMosh(address) {
-    for (let key in address)
-        console.log(key, address[key]);
+function createAddress(street, city, zipCode) {
+    return {
+        street,
+        city,
+        zipCode
+    };
 }
 
-console.log(showAddressMosh(addressMosh));
+let address5 = createAddress('a', 'b', 'c');
+
+console.log(address5);
+
+//constructor function:
+
+function Address(street, city, zipCode) {
+    this.street = street;
+    this.city = city;
+    this.zipCode = zipCode;
+}
+
+let address6 = new Address('d', 'e', 'f');
+
+console.log(address6)
