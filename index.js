@@ -1,59 +1,26 @@
-// Arrays finding elements (reference types)
+//Arrays -removing elements
 
-const courses = [
-    {id: 1, name: 'a'},
-    {id: 2, name: 'b'},
-];
-
-//includes method won't work with reference types:
-
-console.log(courses.includes({ id: 1, name: 'a' })); //output is false even though
-//what is  being searched for is within the array. because the object passed through
-//the courses.includes is a different one from the object made above.  2 diff references.
-
-//must use the find method in order to find whether something is in a reference obj.
-
-//google javascript array find
-
-//use a predicate/call-back function
-
-const course = courses.find(function(course) {
-    return course.name === 'a';
-});
-
-console.log(course);
+const numbers = [1, 2, 3, 4];
+console.log(numbers);
 
 
-const notCourse = courses.find(function(course) {
-    return course.name === 'xyz';
-});
-
-console.log(notCourse);
-
-const findCourseIndex = courses.findIndex(function(course){
-    return course.name === 'a';
-});
-
-console.log(findCourseIndex); //output is 0 because first index in courses is 0,
-//which contains name === 'a'
+//removing from end:
+const last  = numbers.pop();
+console.log(numbers);
+console.log(last);
 
 
-//ARROW FUNCTION: 
+//removing from beginning:
+const first = numbers.shift();
+console.log(numbers);
+console.log(first);
 
-// const findCourse = courses.find((course) => {
-//     return course.name === 'a';
-// });
+//removing from middle:
+//get back to original array by adding the numbers back:
+numbers.unshift(1);
+numbers.push(4);
+console.log(numbers);
 
-//if function has a single paramger like above, remove the parenthesis around course
-//before the fat arrow:
-
-// const findCourse = courses.find(course => {
-//     return course.name === 'a';
-// });
-
-//can clean up and simplify even further to be: 
-const findCourse = courses.find(course => course.name === 'a');
-
-console.log(findCourse)
-
-//if you don't have any parameters then you still have to pass empty ():
+const middle = numbers.splice(2,1)
+console.log(numbers); //3 has been removed because it is in index 2
+console.log(middle);
