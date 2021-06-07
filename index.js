@@ -1,23 +1,38 @@
-// Finding Elements (primitives)
+// Arrays finding elements (reference types)
 
-const numbers = [1, 1, 2, 3, 4, 1];
+const courses = [
+    {id: 1, name: 'a'},
+    {id: 2, name: 'b'},
+];
 
-console.log(numbers.indexOf(2)); //you get 1
-console.log(numbers.indexOf('a')); //you get -1 because it is not in the array
+//includes method won't work with reference types:
 
-console.log(numbers.lastIndexOf(1)); //when you have multiples of something, it will show
-//the last index of the given element.
+console.log(courses.includes({ id: 1, name: 'a' })); //output is false even though
+//what is  being searched for is within the array. because the object passed through
+//the courses.includes is a different one from the object made above.  2 diff references.
 
-console.log(numbers.indexOf(1) !== -1); //to find out if there is an element in the array
-//this will give true or false answer.  but this is a little ugly so instead use:
+//must use the find method in order to find whether something is in a reference obj.
 
-console.log(numbers.includes(1)); //this does same thing and gives back true/false
+//google javascript array find
 
-//you can start your search of index starting from a different point
-//by passing another paramter to tell it where to start:
+//use a predicate/call-back function
 
-console.log(numbers.indexOf(1)); //output is 0 since 1 is at start of list/0 index
+const course = courses.find(function(course) {
+    return course.name === 'a';
+});
 
-console.log(numbers.indexOf(1, 2)); //output is 5, because it will skip the first 1 and 
-//start the search at index 2.
+console.log(course);
 
+
+const notCourse = courses.find(function(course) {
+    return course.name === 'xyz';
+});
+
+console.log(notCourse);
+
+const findCourseIndex = courses.findIndex(function(course){
+    return course.name === 'a';
+});
+
+console.log(findCourseIndex); //output is 0 because first index in courses is 0,
+//which contains name === 'a'
