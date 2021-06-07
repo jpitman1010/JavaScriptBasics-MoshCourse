@@ -1,48 +1,36 @@
-//template literals: 
+//date
 
-//Literals are used for:
-    //Object === {}
-    //Boolean === true, false
-    //String === '',""
-    //Template === ``
+const now = new Date();
+console.log(now)
+const date1 = new Date('May 11 2018 09:00');
+console.log(date1)
 
-//Template literals help us to write cleaner code.
+//months are zero based, so zero is January, and 11 === December
+const date2 = new Date(2018, 4, 11, 9);
+console.log(date2);
 
-const message = `This is my
-first message`; //by putting the back tics and hitting enter where you 
-//want the line break, it will create it without the string literal \n
+//google search javascript dates
 
-const message2 = 
-`This is my
-first message`;
+//each one of these Date objects has a list of built in methods you can use, example:
 
-console.log(message);
-console.log(message2); //they come out exactly the same.
+console.log(now.getDate()); //remember all months are zero indexed, so 7 is June, etc...
+console.log(now.getFullYear());
+console.log(now.getHours());
+console.log(now.getTime());
+console.log(now.getMonth());
+console.log(now.getDay());
 
-//great for using to write emails, allows you to see the formatting:
+//also have set methods:
 
-const message3 = 
-`Hi Mosh,
+console.log(date1.setFullYear(2017));
+console.log(date1); //now year shows 2017
 
-Thank you for teaching this class!!
+//all of these have built in methods to be able to convert them (like to a string)
 
-Regards,
-Julie`;
+console.log(now.toDateString());
+console.log(now.toTimeString());
 
-console.log(message3);  //comes out exactly as written!!
-
-//can add placeholders too!!  
-
-
-const somebody = 'Mosh';
-const me = 'Julie';
-
-const message4 = 
-`Hi ${somebody},
-
-Thanks for teaching this course!
-
-Regards,
-${me}`;
-
-console.log(message4);
+// toISOString() method is used when you are trying to transfer a date and time from
+//client side to the server. Used when building web app or phone app and using 
+//a server/backend  It gives dateTtimeZ:
+console.log(now.toISOString());
