@@ -1,49 +1,15 @@
-//exercise constructor functions
+//exercise price range object
 
-let post = {
-    title: 'a',
-    body: 'b',
-    author: 'c',
-    views: 10,
-    comments: [
-        {author: 'author1', body: 'body1'},
-        {author: 'author2', body: 'body2'}
-    ],
-    isLive: true
-};
+//yelp has price ranges for searches, [$, $$, $$$]
+//create an array of objects, each objects is a price range object
+//think about properties the pricerange object should have 
 
-//create a constructor function to create a post object
-//user is drafting a post but it has not been published yet.
+let priceRanges = [
+    { label: '$', toolTip: 'Inexpensive', minPerPerson: 0, maxPerPerson: 10 },
+    { label: '$$', toolTip: 'Moderate', minPerPerson: 11, maxPerPerson: 20 },
+    { label: '$$$', toolTip: 'Expensive', minPerPerson: 21, maxPerPerson: 50 }
+];
 
-
-//my answer:
-function CreatePost(title, body, author, views, comments, isLive) {
-    this.title = title;
-    this.body = body;
-    this.author = author;
-    this.views = views;
-    this.comments = comments;
-    this.isLive = isLive;
-}
-
-const post1 = new CreatePost('a', 'b', 'c', 0, ['author1', 'body1'], false);
-console.log(post1);
-
-
-//Mosh answer:
-
-function Post(title, body, author) {
-    //don't use views as parameter cause that is automatically zero for creation of post
-    //don't use comments as parameter because it is not posted so cannot have comments
-    //don't use isLive as parameter because it will be set to false initially.
-    this.title = title;
-    this.body = body;
-    this.author = author;
-    this.views = 0;
-    this.comments = [];
-    this.isLive = false;
-}
-
-let postMosh = new Post('a','b','c');
-
-console.log(postMosh);
+let restaurants = [
+    { averagePerPerson: 5 }
+];
