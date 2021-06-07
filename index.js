@@ -1,39 +1,38 @@
-//mapping an array
+//reducing an array
 
 const numbers = [1, -1, 2, 3];
 
-const filtered = numbers.filter(n => n >= 0);
+//how to calculate sum of all numbers in an array:
 
-const items = filtered.map(n => '<li>' + n + '</li>');
+let sum = 0;
 
-console.log(items);
+for (let n of numbers) 
+    sum += n;
 
-const html = '<ul>' + items.join(' ') + '</ul>';
+console.log(sum);
 
-console.log(html);
+//cleaner more elegant way to write this:
+
+const reduceArray = numbers.reduce((accumilator, currentValue) => {
+    return accumilator + currentValue;
+}, 0);
+//passing zero at end of the function allows you to set accumilator to start at 0 since
+//we put zero 
+//the way this works:
+//example:
+//accumilator = 0, currentValue = 1 => accumilator=1;
+//accumilator = 1, currentValue = -1 => accumilator=0;
+//accumilator = 0, currentValue = 2 => accumilator=2;
+//accumilator = 2, currentValue = 3 => accumilator=5;
+
+console.log(reduceArray);
 
 
-// can also map to objects:
-
-const items2 = filtered.map(n => {
-    return { value: n };
-});
-
-console.log(items2);
-
-//can also use chaining:
-
-const chaining  = numbers.filter(n => n >=0).map(n => ({ value: n}) );
-
-console.log(chaining);
-
-//when chaining multiple methods, by convention should actually put each method call 
-// on a separate line to make the code cleaner:
-
-const chaining2  = numbers
-    .filter(n => n >=0)
-    .map(n => ({ value: n}) )
-    .filter(obj => obj.value > 1)
-    .map(obj => obj.value);
-
-console.log(chaining2);
+//can reduce code even further by removing the second parameter to the function, allowing
+//for accumilator to be set to the first element in the array and removing the return and curly 
+//braces and semicolen and turning it into one line within the reduce function.
+const reduceArray2 = numbers.reduce(
+    (accumilator, currentValue) => accumilator + currentValue
+);
+//basically it removes the first example step above
+console.log(reduceArray2);
