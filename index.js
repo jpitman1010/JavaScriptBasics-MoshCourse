@@ -36,3 +36,24 @@ const findCourseIndex = courses.findIndex(function(course){
 
 console.log(findCourseIndex); //output is 0 because first index in courses is 0,
 //which contains name === 'a'
+
+
+//ARROW FUNCTION: 
+
+// const findCourse = courses.find((course) => {
+//     return course.name === 'a';
+// });
+
+//if function has a single paramger like above, remove the parenthesis around course
+//before the fat arrow:
+
+// const findCourse = courses.find(course => {
+//     return course.name === 'a';
+// });
+
+//can clean up and simplify even further to be: 
+const findCourse = courses.find(course => course.name === 'a');
+
+console.log(findCourse)
+
+//if you don't have any parameters then you still have to pass empty ():
