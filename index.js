@@ -1,38 +1,28 @@
-//reducing an array
+//Exercise: Array from range
 
-const numbers = [1, -1, 2, 3];
+const numbers = arrayFromRange(-4, 4);
+const numbers2 = arrayFromRange(4, -1);//expect output of empty array when max is lower
+//than min
 
-//how to calculate sum of all numbers in an array:
+console.log(numbers);
+console.log(numbers2);
 
-let sum = 0;
+//my answer:
+function arrayFromRange(min, max) {
+    const array = [];
+    for (min; min <= max; min++)
+        array.push(min);
+    return array;
+}
 
-for (let n of numbers) 
-    sum += n;
+//Mosh answer: 
+const numbersMosh = arrayFromRange(-4, 4);
 
-console.log(sum);
+console.log(numbersMosh);
 
-//cleaner more elegant way to write this:
-
-const reduceArray = numbers.reduce((accumilator, currentValue) => {
-    return accumilator + currentValue;
-}, 0);
-//passing zero at end of the function allows you to set accumilator to start at 0 since
-//we put zero 
-//the way this works:
-//example:
-//accumilator = 0, currentValue = 1 => accumilator=1;
-//accumilator = 1, currentValue = -1 => accumilator=0;
-//accumilator = 0, currentValue = 2 => accumilator=2;
-//accumilator = 2, currentValue = 3 => accumilator=5;
-
-console.log(reduceArray);
-
-
-//can reduce code even further by removing the second parameter to the function, allowing
-//for accumilator to be set to the first element in the array and removing the return and curly 
-//braces and semicolen and turning it into one line within the reduce function.
-const reduceArray2 = numbers.reduce(
-    (accumilator, currentValue) => accumilator + currentValue
-);
-//basically it removes the first example step above
-console.log(reduceArray2);
+function arrayFromRangeMosh(min, max) {
+    const output = [];
+    for (let i = min; i <= max; i++)
+        array.push(i);
+    return output;
+}
