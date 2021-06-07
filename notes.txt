@@ -115,4 +115,9 @@ in JavaScript.  i.e. let name = 'Julie';
         -Functions
         -Arrays
 
-    -
+    -if you use a for of loop to look at something inside the obj (to loop through obj
+    you must use for in unless you use Object.something you can use for of then) you 
+    can use built in keyword entries to get the output to 
+    place the key and value into an array, so the 0 index of the array will be the key,
+    and the 1 index will be the value.  for (let entry of Object.entries(circle)) 
+    console.log(entry);
