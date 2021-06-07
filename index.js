@@ -1,23 +1,23 @@
-//Arrays:
+// Finding Elements (primitives)
 
-//Adding new elements:
+const numbers = [1, 1, 2, 3, 4, 1];
 
-const numbers = [3, 4];
+console.log(numbers.indexOf(2)); //you get 1
+console.log(numbers.indexOf('a')); //you get -1 because it is not in the array
 
-//constant doesn't stop us from modifying the content of the array, just stops us from 
-//assigning it to a completely different i.e. numbers = [] won't work.
+console.log(numbers.lastIndexOf(1)); //when you have multiples of something, it will show
+//the last index of the given element.
 
-numbers.push(5,6);
+console.log(numbers.indexOf(1) !== -1); //to find out if there is an element in the array
+//this will give true or false answer.  but this is a little ugly so instead use:
 
-console.log(numbers);
+console.log(numbers.includes(1)); //this does same thing and gives back true/false
 
-numbers.unshift(1,2);
-//unshift adds numbers to begining of array.
-console.log(numbers)
+//you can start your search of index starting from a different point
+//by passing another paramter to tell it where to start:
 
-//add/remove to middle of the array, use starting point at the index where you want to 
-//add something, 0 for second element since you don't want to delete at this point:
-numbers.splice(2,0, 'a', 'b');
-console.log(numbers); //adds a and b between 2 and 3.
+console.log(numbers.indexOf(1)); //output is 0 since 1 is at start of list/0 index
 
+console.log(numbers.indexOf(1, 2)); //output is 5, because it will skip the first 1 and 
+//start the search at index 2.
 
