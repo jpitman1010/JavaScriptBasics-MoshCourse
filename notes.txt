@@ -102,3 +102,17 @@ in JavaScript.  i.e. let name = 'Julie';
     -for...in
     -for...of
     
+16. Value types and reference types
+    Value Types:
+        -number
+        -string
+        -boolean
+        -symbol
+        -undefined
+        -null
+    Rerference Types:
+        -Objects
+        -Functions
+        -Arrays
+
+    -
