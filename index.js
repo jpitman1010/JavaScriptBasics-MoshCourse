@@ -1,22 +1,17 @@
-//Testing the elements of an array
+//filtering arrays
 
 const numbers = [1, -1, 2, 3];
 
-const allPositive = numbers.every(function(value) {
+const filteredNumbers = numbers.filter(function(value) {
     return value >= 0;
 });
 
-console.log(allPositive); //as soon as you hit the first negative number the 
-//method terminates
+console.log(filteredNumbers);
 
-//if we replace every with some, and save changes it will show 
+//can use arrow function for this too:
 
+const filteredNumbers2 = numbers.filter(value => value >= 0 );
 
-const oneOrMorePositives = numbers.some(function(value) {
-    return value >= 0;
-});
+console.log(filteredNumbers2);
 
-console.log(oneOrMorePositives); //returns true because there is at least 1 positive
-
-
-//some older browsers don't support this.
+//can exchange value in arrow function to be v or n or whatever.
