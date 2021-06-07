@@ -1,27 +1,68 @@
-//Arrays - joining
+//Arrays - sorting
 
-const numbers = [1, 2, 3, 4];
+const numbers = [2, 3, 4, 1];
 
-const joined = numbers.join(','); //join method returns a string, 
-//notice when you type join( it gives the pop up that shows what you can use
-//as a parameter, anytime it has a ? it means it is an optional parameter, so you can
-//or don't have to use it.
+//when you have numbers and strings in an array, this works:
+numbers.sort();
 
-console.log(joined);
+console.log(numbers);
+
+numbers.reverse();
+
+console.log(numbers);
 
 
-//splice is often used with join, but it only works on strings, not on arrays.
+//but when you have objects in an array:
 
-const message = 'This is my message.';
-const parts = message.split(' ');
+const courses = [
+    { id: 1, name: 'Node.js'},
+    { id: 2, name: 'JavaScript'}
+];
 
-console.log(parts);
+//say you wanted to sort by name;
 
-const combined = parts.join('-');
+//the sort method takes an argument, so we can pass a function to compare the objects
 
-console.log(combined);
+courses.sort(function(a, b) {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+});
 
-//this is used for example if you got to stack overflow for an issue, the title will be 
-//separated with white spaces like you would expect when you are reading, but if 
-//you look at url for that page, the title is in the url, and you cannot use white
-//spaces in url.  the words of title in url are combined/joined using the hyphen.
+console.log(courses);
+
+//however if Javascript is changed to javascript, due to the ASCII numbers assigned
+//to characters, the uppercase will come before the lowercase.
+
+
+const courses2 = [
+    { id: 1, name: 'Node.js'},
+    { id: 2, name: 'javaScript'}
+];
+
+courses2.sort(function(a, b) {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+});
+
+console.log(courses2);
+
+//to fix this issue of uppercase and lowercase:
+
+
+const courses3 = [
+    { id: 1, name: 'Node.js'},
+    { id: 2, name: 'javaScript'}
+];
+
+courses3.sort(function(a, b) {
+    const nameA = a.name.toUpperCase();
+    //can also use toLowerCase
+    const nameB = b.name.toUpperCase();
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+    return 0;
+});
+
+console.log(courses3);
