@@ -1,15 +1,23 @@
-//exercise price range object
+//Arrays:
 
-//yelp has price ranges for searches, [$, $$, $$$]
-//create an array of objects, each objects is a price range object
-//think about properties the pricerange object should have 
+//Adding new elements:
 
-let priceRanges = [
-    { label: '$', toolTip: 'Inexpensive', minPerPerson: 0, maxPerPerson: 10 },
-    { label: '$$', toolTip: 'Moderate', minPerPerson: 11, maxPerPerson: 20 },
-    { label: '$$$', toolTip: 'Expensive', minPerPerson: 21, maxPerPerson: 50 }
-];
+const numbers = [3, 4];
 
-let restaurants = [
-    { averagePerPerson: 5 }
-];
+//constant doesn't stop us from modifying the content of the array, just stops us from 
+//assigning it to a completely different i.e. numbers = [] won't work.
+
+numbers.push(5,6);
+
+console.log(numbers);
+
+numbers.unshift(1,2);
+//unshift adds numbers to begining of array.
+console.log(numbers)
+
+//add/remove to middle of the array, use starting point at the index where you want to 
+//add something, 0 for second element since you don't want to delete at this point:
+numbers.splice(2,0, 'a', 'b');
+console.log(numbers); //adds a and b between 2 and 3.
+
+

@@ -132,3 +132,7 @@ in JavaScript.  i.e. let name = 'Julie';
 17. Javascript Math (google it and go to developer.mozilla.org..... version)
     -it will give you all the different Math.method's that you can go through 
     and be able to use.  There are a lots to use.
+
+
+18. Arrays
+    
