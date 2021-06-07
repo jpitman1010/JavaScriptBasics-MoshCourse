@@ -1,18 +1,21 @@
-//Arrays - Spread Operator
+//Iterating Array
 
-const first  = [1, 2, 3];
-const second = [4, 5, 6];
+const numbers = [1, 2, 3, 4];
 
-//cleaner and more flexible to concatinate the arrays using spread operator
+for (let number of numbers)
+    console.log(number);
 
-const combined = [...first, ...second];
+//this works the same:
+numbers.forEach(function(number){
+    console.log(number);
+});
 
-console.log(combined);
+//this also works the same:
 
-const combinedAddingTo = [...first, 'a', ...second, 'b'];
+numbers.forEach(number => 
+    console.log(number)
+);
 
-console.log(combinedAddingTo);
+//can also add a second parameter:
 
-const copy = [...combined];
-
-console.log(copy);
+numbers.forEach((number, index) => console.log(index, number));
