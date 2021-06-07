@@ -1,32 +1,19 @@
-//cloning an object
+//math
 
-//this is older approach...
-const circle = {
-    radius: 1,
-    draw() {
-        console.log('draw')
-    }
-};
+const randomNumber = Math.random();
+console.log(randomNumber);
+//each time you hit save on this page, a new random number will generate in console log
+//can also just go to console log in the browser and type in Math.random() and it will 
+//do the same thing inside the browser.
 
-// const another = {};
+const roundedNumber = Math.round(randomNumber);
+console.log(roundedNumber);
 
-// for (let key in circle)
-//     another[key] = circle[key];
 
-// console.log(another);
+const largestNumber = Math.max(1,2,3,4,5);
+console.log(largestNumber)
 
-//this is a better/ newer approach
+const smallestNumber = Math.min(1,2,3,4,5);
+console.log(smallestNumber);
 
-// const another = Object.assign({
-//     color: 'yellow'
-//     //you can assign new key value pairs using this method.
-// }, circle);
-
-// console.log(another);
-
-//even more simple and elegant way to clone an object is: 
-
-const another = { ...circle };
-//this ... spreads all properties and methods of the object and spreads it into
-//the object (brackets) to which you are putting into the newly cloned object.
-console.log(another);
+//and there are many more, just google javascript math and go to mozilla developer page

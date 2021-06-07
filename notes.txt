@@ -129,3 +129,6 @@ in JavaScript.  i.e. let name = 'Julie';
     //de-allocate the memory.  Garbage collector finds the things not in use anymore and  
     //automatically removes them from the memory and then automatically deallocates their memory.
 
+17. Javascript Math (google it and go to developer.mozilla.org..... version)
+    -it will give you all the different Math.method's that you can go through 
+    and be able to use.  There are a lots to use.
