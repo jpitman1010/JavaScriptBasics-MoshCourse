@@ -1,36 +1,38 @@
-//date
+//exercise Address Object
+//create an address object that shows:
+    //street
+    //city
+    //zipCode
+//then create a function that showAddress(address) and shows all the
+//values of the address object.
 
-const now = new Date();
-console.log(now)
-const date1 = new Date('May 11 2018 09:00');
-console.log(date1)
+//my answer:
+const address = {
+    street: '123 Fake Street',
+    city: 'Springfield',
+    zipCode: 11111
+};
 
-//months are zero based, so zero is January, and 11 === December
-const date2 = new Date(2018, 4, 11, 9);
-console.log(date2);
+function showAddress(address) {
+    for (partOf in address)
+        console.log(address.street);
+        console.log(address.city);
+        console.log(address.zipCode);
+}
 
-//google search javascript dates
+showAddress(address);
 
-//each one of these Date objects has a list of built in methods you can use, example:
+//Mosh answer:
 
-console.log(now.getDate()); //remember all months are zero indexed, so 7 is June, etc...
-console.log(now.getFullYear());
-console.log(now.getHours());
-console.log(now.getTime());
-console.log(now.getMonth());
-console.log(now.getDay());
+let addressMosh = {
+    street: 'a',
+    city: 'b',
+    zipCode: 'c'
+};
 
-//also have set methods:
+function showAddressMosh(address) {
+    for (let key in address)
+        console.log(key, address[key]);
+}
 
-console.log(date1.setFullYear(2017));
-console.log(date1); //now year shows 2017
-
-//all of these have built in methods to be able to convert them (like to a string)
-
-console.log(now.toDateString());
-console.log(now.toTimeString());
-
-// toISOString() method is used when you are trying to transfer a date and time from
-//client side to the server. Used when building web app or phone app and using 
-//a server/backend  It gives dateTtimeZ:
-console.log(now.toISOString());
+console.log(showAddressMosh(addressMosh));
