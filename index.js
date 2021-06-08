@@ -1,47 +1,37 @@
-//exercise 2: Includes
+//Exercise  - except:
+//build a function that passes 2 parameters, numbers array and excluded.  if 
+//excluded is a number in the array, return a new array exlcluding that number.
 
-const numbers = [1, 2, 3, 4];
+const numbers = [1, 2, 3, 4, 1 , 2, 1];
 
-// console.log(numbers.includes(1));
+const output = except(numbers, [1,2]);
 
-//write a function like the includes method, impliment 
-//the method as though it doesn't exist.
-//write a fcn that has to parameters (array, searchElement) and if it includes 
-//the searchElement, return true, otherwise return false.
-
+console.log(output);
 
 //my answer:
-const checkIfIncluded = includes(numbers, 2); //expect true
-const checkIfIncluded2 = includes(numbers, -2); //expect false
-const checkIfIncluded3 = includes(numbers, 6); //expect false
+
+function except(array, excluded) {
+    const newArray = array
+    for (let number of excluded) 
+        for (let num of array) 
+            if (num === number) {                
+                const findIndexToRemove = newArray.indexOf(num);
+                newArray.splice(findIndexToRemove,findIndexToRemove+1); 
+            }
+    return newArray
+}
 
 
-function includes(array, searchElement) {
-    for (num of array) 
-        if (num === searchElement)
-            return true;
-    return false;
-}   
+//Mosh answer: 
 
-console.log(checkIfIncluded);
-console.log(checkIfIncluded2);
-console.log(checkIfIncluded3);
+const outputMosh = exceptMosh(numbers, [1,2]);
 
+console.log(outputMosh);
 
-//Mosh answer:
-
-
-function includesMosh(array, searchElement) {
-    for (let element of array) 
-        if (element === searchElement)
-            return true;
-    return false;
-}   
-
-const checkIfIncludedMosh = includes(numbers, 2); //expect true
-const checkIfIncludedMosh2 = includes(numbers, -2); //expect false
-const checkIfIncludedMosh3 = includes(numbers, 6); //expect false
-
-console.log(checkIfIncludedMosh);
-console.log(checkIfIncludedMosh2);
-console.log(checkIfIncludedMosh3);
+function exceptMosh(array, excluded) {
+    const output = [];
+    for (let element of array)
+        if (!excluded.includes(element))
+            output.push(element);
+    return output;
+}
