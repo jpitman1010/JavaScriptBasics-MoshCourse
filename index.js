@@ -1,69 +1,95 @@
-// Let vs Var
+//The  this  keyword
 
-let x = 0;
-var y = 0; //should avoid var
+// if function is a method in an object object, this references the object itself
+//however
+// if the function is outside of an object it is a global object 
+ //which is the window object in browsers
+//and  global object in Node
 
-function start() {
-    for (let i = 0; i < 5; i++) {
-        console.log(i);
+
+// this : references the object that is executing the current function
+const video = {
+    title: 'a',
+    play() {
+        console.log(this);
     }
-    console.log(i); //gives error because i is in a local scope to the for block.
+};
+
+video.play();
+//because play is a method within the object video, 'this' references the object itself.
+//so when you console.log(this) it's output is the entire object.
+//we can also add methods to the video object and 'this' will give the same object 
+//only now it will include the new stop method:
+
+video.stop = function() {
+    console.log(this);
+};
+
+video.stop();
+
+
+// _________________________________________________________________________
+
+
+
+function playVideo() {
+    console.log(this);
+    //in node it is the global object, in web browser it is the window object
 }
 
-// start();
+playVideo();
 
-function start2() {
-    for (var i = 0; i < 5; i++) {
-        console.log(i);
+//now what if we did this as a constructor function instead?  
+
+function Video(title) {
+    this.title = title;
+    console.log(this);
+}
+
+const v = new Video('b');
+//instead of the window object, the new operator it creates a NEW object that is
+//not attached to the window or global object.
+//this will reference a new empty object in this case.
+
+// ____________________________________________________________________________
+
+
+const video2 = {
+    title: 'a',
+    tags: ['a', 'b', 'c'],
+    showTags() {
+        this.tags.forEach(function(tag) {
+            console.log(this.tag, tag);
+            //you will keep getting undefined, and if you remove the .tag
+            //and just console.log() the 'this', it will show that you are
+            //actually referencing the window object with this.
+            //because you are inside of a regular call-back function.
+            //it is NOT a method in the video object!!
+            //the only method we have in video2 is showTags(), the function within 
+            //that method is not attached to window/global, but the function within 
+            //the method is. 
+            //the global object is executing the function.
+            //to fix this see below, the forEach call back function has a second argument you
+            //can use called thisArg
+        });
     }
-    console.log(i); // does NOT give error because var associates i with the function 
-    //not with the block of code.  also allows for i to go to 5.
-}
+};
 
-start2();
-
-//when using var, you don't get the reference error that you should get, also it allows 
-//i to go to 5 in console.log, so it is not following the object.
-
-//var's scope isn't limited to the block where it is defined, it is limited to the function
-//so it is best to use let and const (block scope variables), whereas var creates function scoped 
-//variables
+video2.showTags();
 
 
-function start3() {
-    for (var i = 0; i < 5; i++) {
-        if (true) {
-            var color = 'red';
-        }
+const video3 = {
+    title: 'a',
+    tags: ['a', 'b', 'c'],
+    showTags() {
+        this.tags.forEach(function(tag) {
+            console.log(this.tag, tag);
+            console.log(this.title, tag);
+        }, this);
     }
-    console.log(color); 
-}
+};
 
-start3();
+video3.showTags();
 
-
-
-var colorRed = 'red';
-console.log(colorRed)
-//var variables attach to a window object (go to console in live server  (web) and 
-//type in window into console, you will see window object,
-//if you type window.colorRed you will see the window object attached to this var) 
-let age = 30;
-//let doesn't attach the variable to the window object.   
-
-//window object is something central, there is only 1 instance of the window object.
-
-
-//if you are using an external library and they happen to have a variable set to the same
-//name as one of your variables and both are attached to the window centralized object, it 
-//can override your variable and cause all sorts of problems.
-
-
-//when we declair a function it is actually global and added to the window object.
-
-function sayHi() {
-    console.log('Hi');
-}
-//go to live server console and type in window.sayHi
-//this is bad practice, but will learn later how to encapsulate functions 
-//to keep them from attaching to the window.
+//not all call back functions allow for passing 'this' the same way, so next we'll learn
+//how to change the value of 'this'
