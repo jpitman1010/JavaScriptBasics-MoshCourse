@@ -1,70 +1,43 @@
-//arguements
+//Default Parameters
 
-function sum(a, b) {
-    return a + b;
+function interest(principal, rate, years) {
+    return principal * rate / 100 * years;
 }
 
-console.log(sum(1, 2));
-//you can also pass only 1 argument
-console.log(sum(1));
-//result is NaN because the sum of 1 + undefined == NaN
+console.log(interest(10000, 3.5, 5));
 
-//same happens if we pass no arguments or additional arguments:
-console.log(sum()); //results in NaN
-console.log(sum(1, 2, 3, 4, 5)); //result is still 3, 
-//because only the first 2 arguments are being used.
+//if you want default values for rate and year
 
-
-//if you want a varied number of parameters in a function
-//every function has a built in function called
-// arguments (sort of looks like array but it is
-//actually an object, they keys being the indexes 
-//to the arguments passed in the function)
-
-function sum2(a, b) {
-    console.log(arguments);
-    return a + b;
+function interest2(principal, rate = 3.5, years = 5) {
+    return principal * rate / 100 * years;
 }
 
-console.log(sum2(1, 2, 3, 4, 5)); 
+console.log(interest2(10000));
 
-//to change the function to add all the arguments passed
-//into  the function:
+//you can declair a value for the parameter of the fcn
+// you must pass value for all other parameters following it
+//or you can get errors (NaN in this case)
 
-function sum3() {
-    let total = 0;
+//a trick to get around not setting years = something in parameters
+//and avoiding errors, is to call the function with undefined as the
+//rate and you won't get an error.  
 
-    for (let value of arguments)
-        total += value;
-    return total
+function interest2(principal, rate = 3.5, years) {
+    return principal * rate / 100 * years;
 }
 
-console.log(sum3(1, 2, 3, 4, 5)); 
 
+console.log(interest5(100000, undefined, 5));
 
-//The Rest Operator
-    //this is not the spread operator like with arrays
-    //it is the Rest Operator and uses args(or whatever you call it)
-    //the ... before args it allows all of the arguments
-    //to come through as an array.  Then you can use reduce
-    //to get the sum
+//when rate or year is called as an argument in the 
+//calling of the function, it trumps the default 
+//parameter of the function (unless argument is undefined).  
+//but coding with undefined in argument when calling function
+//is considered ugly code.
 
-
-function sum4(...args) {
-    // console.log(args);
-    return args.reduce((a, b) => a + b);
+function interest2(principal, rate = 3.5, years = 2) {
+    return principal * rate / 100 * years;
 }
 
-console.log(sum4(1, 2, 3, 4, 5)); 
 
-//next level for this function:  
-
-//can rename args
-function sum5(discount, ...prices) {
-    const total = prices.reduce((a, b) => a + b)
-    return total * (1 - discount)
-}
-
-console.log(sum5(0.1, 20, 30)); 
-
-//rest parameter must be the last parameter in the function
+console.log(interest5(100000, 12, 5));
