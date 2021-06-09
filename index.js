@@ -1,48 +1,43 @@
-//exercise: Sum of Arguments
+// Area of a circle
 
-//create function called sum taking a varying number of arguments and
-//returns their sum. 
-//do it first to accept multiple arguments, then 2nd challenge is to allow it to 
-//accept an array as the argument (instead of) and still get the same results.
+//create a circle object using object literal syntax
 
-
-//my answer 1st challenge: 
-console.log(sum(1, 2, 3, 4)); //output should be 10
-console.log(sum(2, 3)); //output should be 5
-console.log(sum(1)); //output should be 1
-
-function sum() {
-    let total = 0;
-
-    for (let value of arguments) 
-        total += value;
-    return total;
-}
-
-//my 2nd answer to 1st challenge
+//should have following properties:
+// circle.radius = 2;
+//should also have an area property that cannot be changed from the outside.]
 
 
-console.log(sum2(1, 2, 3, 4)); //output should be 10
-console.log(sum2(2, 3)); //output should be 5
-console.log(sum2(1)); //output should be 1
-
-function sum2(...arguments) {
-    return arguments.reduce((a, b) => a + b);
-}
-
-
-//2nd challenge:
-
-console.log(sum3([1, 2, 3, 4])); //output should be 10
-console.log(sum3([2, 3])); //output should be 5
-console.log(sum3([1])); //output should be 1
+let circle = {
+    radius: 1,
+    get area() {
+    //    return 3.14159265359 * radius * radius, my answer
+    //Mosh's answer:
+    return Math.PI * this.radius * this.radius;
+    }
+};
 
 
-function sum3(...args) {
-    if (args.length === 1 && Array.isArray(args[0]))
-        args = [...args[0]];
-    return args.reduce((a, b) => a + b)
-}
+console.log(circle);
+
+console.log(circle.radius);
+console.log(circle.area);
 
 
-//Mosh answer
+circle.radius = 2;
+
+console.log(circle);
+console.log(circle.radius);
+console.log(circle.area);
+
+
+circle.radius = 3;
+
+console.log(circle);
+console.log(circle.radius);
+console.log(circle.area);
+
+
+circle.area = 12
+
+console.log(circle.area); //doesn't change area from outside
+
