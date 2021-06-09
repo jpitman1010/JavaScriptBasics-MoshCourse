@@ -1,50 +1,49 @@
-//Getters and Setters
+//Scope: Local vs. Global
+
+const message = 'hi';
+
+console.log(message);
+
+//but what if you set the variable up inside of a block?
+
+{
+    const message2 = 'hello';
+}
+
+// console.log(message2); //you get reference error saying message 2 is not defined.
+//when defining variables with const or let it is only be accessed within that block.
+
+//say you have the block within a function: 
 
 
-const person = {
-    firstName: 'Julie',
-    lastName: 'Pitboss',
-    get fullName() {
-        return `${person.firstName} ${person.lastname}`
-        //using template literals for the method;
-    },
-    set fullName(value) { 
-        if (typeof value !== 'string') //return; //this works to ensure it is a string 
-        //passed into value or returns what the name is already set to.  But not best way.
-        //instead use:
-            throw new Error('Value is not a string.');
-        const parts = value.split(' ');
-        if (parts.length !== 2)
-            throw new Error('Enter a first and last name.');
-        this.firstName = parts[0];
-        this.lastName = parts[1];
+function start() {
+    const message = 'Hi';
+
+    if (true) {
+        const message2 = 'Bye';
+        //this constant is only accessable in this block.
     }
+    // console.log(message2); //uncaught reference error, message2 undefined...
 }
 
-try {
-    person.fullName = '';
+start();
+
+const color = 'red';  //this constant has global scope, so it can be accessed everywhere.
+//in general it is considered bad practice to define global variables or constants.
+//think of it like this being a toothbrush and each function is a person, you don't want
+//every person sharing the same tooth brush, it can lead to all kinds of bugs and issues within
+//the program.  
+
+function begin() {
+    const message = 'Hi';
+    console.log(message, color);
 }
-catch (e) {
-    console.log(e);
-    alert(e);
-    //will learn later how to not use alert to tell user about error
+
+function end() {
+    const message = 'Bye';
+    const color = 'blue'; //local variables/constants take presidence over global
+    console.log(message, color);
 }
-//gertters access properties in a method
-//setters allow you to change (mutate) the properties.
 
-person.fullName = 'John Smith';
-
-console.log(person);
-
-
-// try and catch
-
-//what would happen if you passed a boolean to this method? or null or undefined?
-// console.log(person.fullName = null);  //you get an error because a boolean doesn't have 
-// //properties of split.
-// console.log(person.fullName = undefined); // same output as null
-// console.log(person.fullName = true); // same output as null and undefined
-
-
-
-
+begin();
+end();
