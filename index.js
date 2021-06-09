@@ -1,38 +1,51 @@
-//exercise -Moving an element
+//exercise count occurrences 
 
- const numbers = [1, 2, 3, 4];
-//Mosh Answer
+const numbers = [1, 2, 3, 4, 1];
 
-const output = moveMosh(numbers, 0, 0); //returns original array
-console.log(output);
-console.log(moveMosh(numbers, 3, 0)); //returns original array
-console.log(moveMosh(numbers, 0, 1)); // passing 1 as offset, 1&2 swap places
-// console.log(moveMosh(numbers, 4, 1)); // passing -2 or less as offset from index 1
-// //, output = console.error('Invalid offset');
-// console.log(moveMosh(numbers, 0, 5)); // passing 4 or more as offset, output =
-// //console.error('Invalid offset');
-// console.log(moveMosh(numbers, 3, 2)); // passing -2 or less as offset from index 1
-// //, output = console.error('Invalid offset');
-// console.log(moveMosh(numbers, 0, -1));  // passing -1 or less as offset from index 0
-// //, output = console.error('Invalid offset');
-// console.log(moveMosh(numbers, 1, -2)); // passing -2 or less as offset from index 1
-// //, output = console.error('Invalid offset');
-console.log(moveMosh(numbers, 0, 2)); // passing 2 as offset, output = [2, 3, 1, 4];
-console.log(moveMosh(numbers, 0, 3)); // passing 3 as offset, output = [2, 3, 4, 1];
-console.log(moveMosh(numbers, 1, -1)); // passing -1 as offset at index 1, output = [2, 1, 3, 4];
-console.log(moveMosh(numbers, 1, 2)); // passing 2 as offset, output = [1, 3, 4, 2];
-console.log(moveMosh(numbers, 3, -2)); // passing -1 as offset at index 1, output = [1, 4, 2, 3];
+console.log(countOccurrences(numbers, 1)); //expected output 5
+console.log(countOccurrences([1, 1, 2], 1)); // expected output 2
+console.log(countOccurrences([2, 2, 2], 1)); //expected output 0
 
+// my answer first challenge way (given 2 challenges to solve 2 different ways)
 
-function moveMosh(array, index, offset) {
-    const position = index + offset; 
-    if (position >= array.length || position < 0) {
-        console.error('Invalid Offset.');
-        return;
-    }
-
-    const output = [...array];
-    const element = output.splice(index, 1)[0];
-    output.splice(position, 0, element);
-    return output;
+function countOccurrences(array, searchElement) {
+    let count = 0;
+    for  (number of array)
+        if (number === searchElement) count++;
+    return count;
 }
+
+//my second answer using reducer for array: 
+const reduceArray = numbers.reduce( function
+    (accumulator, searchElement) {
+        if (searchElement === 1)
+            accumulator++
+        return accumulator }, 0);
+
+console.log(reduceArray);
+
+
+//Mohs Answer: 
+
+const count = countOccurrencesMosh(numbers, 1);
+
+console.log(count);
+
+// function countOccurrencesMosh(array, searchElement) {
+//     let count = 0;
+//     for (let element of array)
+//         if (element === searchElement)
+//             count ++;
+//     return count;
+// }
+
+function countOccurrencesMosh(array, searchElement) {
+    array.reduce((accumulator, current) => {
+        const occurence = (current === searchElement ? 1 : 0);
+        console.log(accumulator, current, searchElement);
+        console.log(accumulator + occurence);
+        return accumulator + occurence;
+    }, 0);
+}
+
+
