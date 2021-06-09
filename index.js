@@ -39,4 +39,32 @@ function sum3() {
     return total
 }
 
-console.log(sum2(1, 2, 3, 4, 5)); 
+console.log(sum3(1, 2, 3, 4, 5)); 
+
+
+//The Rest Operator
+    //this is not the spread operator like with arrays
+    //it is the Rest Operator and uses args(or whatever you call it)
+    //the ... before args it allows all of the arguments
+    //to come through as an array.  Then you can use reduce
+    //to get the sum
+
+
+function sum4(...args) {
+    // console.log(args);
+    return args.reduce((a, b) => a + b);
+}
+
+console.log(sum4(1, 2, 3, 4, 5)); 
+
+//next level for this function:  
+
+//can rename args
+function sum5(discount, ...prices) {
+    const total = prices.reduce((a, b) => a + b)
+    return total * (1 - discount)
+}
+
+console.log(sum5(0.1, 20, 30)); 
+
+//rest parameter must be the last parameter in the function
