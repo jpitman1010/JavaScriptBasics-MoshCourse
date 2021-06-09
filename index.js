@@ -1,70 +1,47 @@
-// Exercise get max
+//exercise - Movies
 
-//my answer: 
-const numbers = [1, 2, 3, 4];
-const numbers2 = [-1, -2, -3, -4];
-const numbers3 = [];
-const numbers4 = [0, 1, 30, 100];
+const movies = [
+    { title: 'a', year: 2018, rating: 4.5 },
+    { title: 'b', year: 2018, rating: 4.7 },
+    { title: 'c', year: 2018, rating: 3 },
+    { title: 'd', year: 2017, rating: 4.5 },
+];
 
-console.log(getMax(numbers)); // expected output 4
-console.log(getMax(numbers2)); // expected output -1
-console.log(getMax(numbers3)); //expected output undefined
-console.log(getMax(numbers4)); //expected output 100
-
-function getMax(array) {
-    let max = array[0];
-    for (number of array)
-        (number > max) ? (max = number) : max;
-    return max;
-}
-
-//second part of challenge, solve using reduce method in arrays
-
-console.log(getMax2(numbers)); // expected output 4
-console.log(getMax2(numbers2)); // expected output -1
-console.log(getMax2(numbers3)); //expected output undefined
-console.log(getMax2(numbers4)); //expected output 100
+//all the movies from 2018 with rating > 4;
+//sort by rating in descending order (higher score first)
+//show only their title:
+//result should be: 
+// 'b'
+// 'a'
 
 
-function getMax2(array) {
-    if (array.length === 0) return undefined;
-
-    return array.reduce((accumulator, current) => 
-    (current > accumulator) ? current : accumulator);
-}
-
-//Mosh answer: 
-
-
-console.log(getMaxMosh(numbers)); // expected output 4
-console.log(getMaxMosh(numbers2)); // expected output -1
-console.log(getMaxMosh(numbers3)); //expected output undefined
-console.log(getMaxMosh(numbers4)); //expected output 100
-
-
-
-function getMaxMosh(array) {
-    if (array.length === 0) return undefined;
-
-    let max = array[0];
+function movieRating(movies) {
+    let movieList = []
+    for (movie of movies) {
+        if (movie.year === 2018 && movie.rating >= 4)
+            movieList.push(movie.title);
+    }
     
-    for (let i = 1; i < array.length; i++) 
-        if (array[i] > max)
-            max = array[i];
-
-    return max;
+    movieList.sort(function(current, next) {
+        if (current > next) 
+            console.log(current);
+            console.log(next);
+    })
 }
 
 
-console.log(getMaxMosh2(numbers)); // expected output 4
-console.log(getMaxMosh2(numbers2)); // expected output -1
-console.log(getMaxMosh2(numbers3)); //expected output undefined
-console.log(getMaxMosh2(numbers4)); //expected output 100
+movieRating(movies);
 
 
+//Mosh answer 
 
-function getMaxMosh2(array) {
-    if (array.length === 0) return undefined;
+const titles = movies 
+    .filter(m => m.year === 2018 && m.rating >= 4)
+    .sort((a,b) => a.rating - b.rating)
+    .reverse()
+    .map(m => m.title);
 
-    return array.reduce((a, b) => (a > b) ? a : b);
-}
+console.log('Mosh\'s answer', titles);
+        
+        
+
